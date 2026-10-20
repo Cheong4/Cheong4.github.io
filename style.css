@@ -20,9 +20,10 @@ a:hover{color:var(--accent)}
 }
 
 .top{position:sticky;top:0;z-index:20;background:rgba(11,15,20,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;justify-content:space-between;align-items:center;height:52px;flex-wrap:wrap}
-.prompt{color:var(--accent);font-weight:700}
-.top nav a{margin-left:16px;font-size:13px;color:var(--muted)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px 16px;min-height:52px;padding-top:8px;padding-bottom:8px}
+.prompt{color:var(--accent);font-weight:700;white-space:nowrap}
+.top nav{display:flex;flex-wrap:wrap;gap:2px 16px}
+.top nav a{font-size:13px;color:var(--muted);padding:4px 0;white-space:nowrap}
 .top nav a:hover{color:var(--accent)}
 
 .hero{padding:90px 0 50px}
@@ -75,3 +76,11 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
 .log li.year-head::before{display:none}
 .log li.empty{color:var(--muted);font-size:14px}
 .log li.empty::before{display:none}
+
+/* ---- 모바일 navbar / 앵커 위치 ---- */
+section,footer{scroll-margin-top:96px}
+@media (max-width:600px){
+  .top .wrap{flex-direction:column;align-items:flex-start;gap:0;padding-top:10px;padding-bottom:4px}
+  .top nav{width:100%;justify-content:space-between;gap:0}
+  .top nav a{padding:8px 0}
+}
