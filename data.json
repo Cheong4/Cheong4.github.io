@@ -1,0 +1,124 @@
+{
+  "name": "CheongA",
+  "handle": "CheongA",
+  "slogan": "Find it. Break it. Secure it.",
+  "desc": "취약점 연구와 보안 도구 개발을 하는 4인 보안 팀, CheongA입니다.",
+  "about": "CheongA는 취약점 분석, 리버스 엔지니어링, 보안 도구 개발을 함께 하는 보안 팀입니다. 공격자의 시선으로 문제를 찾고, 방어에 쓸 수 있는 결과물로 만들며, 발견한 취약점은 책임 있게 공개합니다.",
+  "contact": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/CheongA"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:contact@example.com"
+    }
+  ],
+  "stats": [
+    {
+      "value": "4",
+      "label": "Members"
+    },
+    {
+      "value": "0",
+      "label": "CVEs (수정하세요)"
+    },
+    {
+      "value": "0",
+      "label": "CTFs (수정하세요)"
+    }
+  ],
+  "tags": [
+    "Vulnerability Research",
+    "Reverse Engineering",
+    "Windows Internals",
+    "Web Security",
+    "DAST/SAST",
+    "CTF",
+    "Open Source"
+  ],
+  "history": [
+    {
+      "date": "2025.03",
+      "title": "팀 결성 (샘플)",
+      "desc": "보안 연구를 함께하기 위해 CheongA를 시작."
+    },
+    {
+      "date": "2025.06",
+      "title": "첫 취약점 제보 (샘플)",
+      "desc": "오픈소스 프로젝트 취약점을 책임 있게 제보."
+    },
+    {
+      "date": "2025.09",
+      "title": "CTF 대회 참가 (샘플)",
+      "desc": "국내외 CTF 대회에 팀으로 참가."
+    },
+    {
+      "date": "2025.12",
+      "title": "보안 도구 오픈소스 공개 (샘플)",
+      "desc": "자체 개발 도구를 GitHub에 공개."
+    },
+    {
+      "date": "2026.02",
+      "title": "신규 연구 과제 시작 (샘플)",
+      "desc": "새로운 취약점 연구 주제를 정하고 착수."
+    },
+    {
+      "date": "2026.05",
+      "title": "컨퍼런스 발표 (샘플)",
+      "desc": "연구 결과를 보안 컨퍼런스에서 발표."
+    },
+    {
+      "date": "2026.09",
+      "title": "보안 도구 v1.0 릴리스 (샘플)",
+      "desc": "베타를 거쳐 정식 버전을 공개."
+    }
+  ],
+  "members": [
+    {
+      "name": "Joonwoo",
+      "role": "Member",
+      "bio": "",
+      "skills": [
+        "Web",
+        "Pwnable"
+      ],
+      "photo": "images/member.png",
+      "links": {}
+    },
+    {
+      "name": "Hyeongi / d1zzy",
+      "role": "Member",
+      "bio": "",
+      "skills": [
+        "Pwnable",
+        "Crypto"
+      ],
+      "photo": "images/member.png",
+      "links": {}
+    },
+    {
+      "name": "Kwangwoon / kilkat",
+      "role": "Member",
+      "bio": "",
+      "skills": [
+        "Reversing",
+        "Web"
+      ],
+      "photo": "images/member.png",
+      "links": {}
+    },
+    {
+      "name": "Jungu / hambugi",
+      "role": "Member",
+      "bio": "",
+      "skills": [
+        "Reversing",
+        "Misc",
+        "OSINT"
+      ],
+      "photo": "images/member.png",
+      "links": {}
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CheongA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="scanlines"></div>
+
+<header class="top">
+  <div class="wrap">
+    <span class="prompt" id="brand">CheongA@site:~$</span>
+    <nav>
+      <a href="#about">./about</a>
+      <a href="#history">./history</a>
+      <a href="#members">./members</a>
+      <a href="#contact">./contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="muted">$ cat welcome.txt</p>
+    <h1><span id="typed"></span><span class="cursor">▌</span></h1>
+    <p id="desc" class="lead"></p>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section id="about">
+    <h2><span class="hash">#</span> about</h2>
+    <p id="about-text"></p>
+    <div class="tags" id="tags"></div>
+  </section>
+
+  <section id="history">
+    <h2><span class="hash">#</span> history</h2>
+    <div class="tabs" id="year-tabs" role="tablist" aria-label="연도 선택"></div>
+    <ol class="log" id="log" aria-live="polite"></ol>
+  </section>
+
+  <section id="members">
+    <h2><span class="hash">#</span> members</h2>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="muted">$ echo $CONTACT</p>
+    <p id="contact-text"></p>
+    <p class="muted small">exit 0</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

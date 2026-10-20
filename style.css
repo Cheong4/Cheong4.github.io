@@ -1,0 +1,77 @@
+:root{
+  --bg:#0b0f14; --panel:#121923; --line:#1f2a38;
+  --fg:#d6e1ee; --muted:#7a8a9c; --accent:#3ddc97; --accent2:#5cc8ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:"JetBrains Mono","Fira Code",ui-monospace,SFMono-Regular,Menlo,Consolas,"Noto Sans KR",monospace;
+  line-height:1.75;font-size:15px;
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+.muted{color:var(--muted)} .small{font-size:12px}
+a{color:var(--accent2);text-decoration:none}
+a:hover{color:var(--accent)}
+
+.scanlines{
+  pointer-events:none;position:fixed;inset:0;z-index:50;opacity:.05;
+  background:repeating-linear-gradient(0deg,#fff 0,#fff 1px,transparent 1px,transparent 3px);
+}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(11,15,20,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:52px;flex-wrap:wrap}
+.prompt{color:var(--accent);font-weight:700}
+.top nav a{margin-left:16px;font-size:13px;color:var(--muted)}
+.top nav a:hover{color:var(--accent)}
+
+.hero{padding:90px 0 50px}
+.hero h1{font-size:clamp(28px,6vw,52px);line-height:1.25;margin:10px 0 14px;color:#fff}
+.cursor{color:var(--accent);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{color:var(--muted);max-width:620px}
+
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.stat{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:14px 20px;min-width:120px}
+.stat b{display:block;font-size:26px;color:var(--accent)}
+.stat span{font-size:12px;color:var(--muted)}
+
+section{padding:48px 0;border-top:1px dashed var(--line)}
+h2{font-size:22px;margin-bottom:22px;color:#fff}
+.hash{color:var(--accent)}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{font-size:12px;border:1px solid var(--accent);color:var(--accent);padding:2px 10px;border-radius:999px}
+
+.log{list-style:none;border-left:2px solid var(--line);padding-left:20px}
+.log li{position:relative;margin-bottom:22px}
+.log li::before{content:"";position:absolute;left:-27px;top:9px;width:10px;height:10px;background:var(--accent);border-radius:2px}
+.log time{color:var(--accent2);font-size:13px}
+.log h3{font-size:16px;color:#fff}
+.log p{color:var(--muted);font-size:14px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;transition:.2s}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.avatar{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04210f;font-weight:800;font-size:26px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;object-fit:cover}
+.card h3{font-size:17px;color:#fff}
+.role{color:var(--accent);font-size:13px}
+.bio{color:var(--muted);font-size:13px;margin:8px 0}
+.skills{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.skills span{font-size:11px;background:#0b0f14;border:1px solid var(--line);padding:1px 8px;border-radius:4px;color:var(--fg)}
+.card .links a{font-size:12px;margin-right:10px}
+
+footer{border-top:1px solid var(--line);padding:40px 0 60px}
+
+/* ---- 연혁 연도 탭 ---- */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tab{font:inherit;font-size:13px;cursor:pointer;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px 14px;transition:.15s}
+.tab:hover{color:var(--fg);border-color:var(--accent2)}
+.tab[aria-selected="true"]{color:#04210f;background:var(--accent);border-color:var(--accent);font-weight:700}
+.tab:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.tab .n{margin-left:6px;font-size:11px;opacity:.7}
+.tab.zero:not([aria-selected="true"]){opacity:.5}
+.log li.year-head{color:var(--accent);font-weight:700;font-size:15px;margin:6px 0 14px}
+.log li.year-head::before{display:none}
+.log li.empty{color:var(--muted);font-size:14px}
+.log li.empty::before{display:none}
