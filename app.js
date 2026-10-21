@@ -34,6 +34,8 @@ function render(d) {
     .map((s) => `<div class="stat"><b>${esc(s.value)}</b><span>${esc(s.label)}</span></div>`)
     .join("");
 
+  loadRanking();
+
   $("tags").innerHTML = d.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("");
 
   renderHistory(d.history || []);
@@ -146,4 +148,26 @@ function typeWriter(text, el, i = 0) {
   if (i > text.length) return;
   el.textContent = text.slice(0, i);
   setTimeout(() => typeWriter(text, el, i + 1), 55);
+}
+
+/* ---------- CTFtime 랭킹 (data.json 의 ranking 값) ---------- */
+// ranking.json 은 GitHub Actions(.github/workflows/update-ctftime.yml)가 매일 CTFtime 에서 받아 갱신합니다.
+function loadRanking() {
+  fetch("ranking.json", { cache: "no-cache" })
+    .then((r) => (r.ok ? r.json() : Promise.reject()))
+    .then(renderRanking)
+    .catch(() => renderRanking(null));
+}
+
+function renderRanking(r) {
+  const el = $("ranking");
+  if (!r) { el.hidden = true; return; }
+  el.innerHTML =
+    `<p class="muted">$ ctftime --team CheongA --year ${esc(r.year)}</p>` +
+    `<div class="ranks">` +
+    `<div class="rank"><span>Global Rank</span><b>#${esc(r.global)}</b></div>` +
+    `<div class="rank"><span>${esc(r.countryName)} Rank</span><b>#${esc(r.country)}</b></div>` +
+    `<div class="rank"><span>Rating</span><b>${esc(r.points)}</b></div>` +
+    `</div>` +
+    `<p class="muted small"><a href="${esc(r.url)}" target="_blank" rel="noopener">CTFtime ↗</a> · ${esc(r.year)} · updated ${esc(r.updated)}</p>`;
 }

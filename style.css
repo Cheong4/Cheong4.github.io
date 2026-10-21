@@ -77,6 +77,13 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
 .log li.empty{color:var(--muted);font-size:14px}
 .log li.empty::before{display:none}
 
+/* ---- CTFtime 랭킹 ---- */
+.ranking{margin-top:28px}
+.ranks{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0}
+.rank{border:1px solid var(--accent);background:var(--panel);border-radius:8px;padding:12px 20px;min-width:120px}
+.rank b{display:block;font-size:26px;color:var(--accent2)}
+.rank span{font-size:12px;color:var(--muted)}
+
 /* ---- 모바일 navbar / 앵커 위치 ---- */
 section,footer{scroll-margin-top:96px}
 @media (max-width:600px){
