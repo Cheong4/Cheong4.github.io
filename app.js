@@ -84,7 +84,21 @@ function setupNav() {
     }
   }
 
+  // 메뉴를 눌러 이동한 직후에는 누른 메뉴를 그대로 강조합니다. (members 는 페이지 끝이라 contact 와 겹쳐 보이기 때문)
+  let forced = m && !/^#history-/.test(location.hash) ? m[1] : "";
+  const unforce = () => {
+    if (forced) { forced = ""; spy(); }
+  };
+  Object.keys(links).forEach((id) => links[id].addEventListener("click", () => { forced = id; spy(); }));
+  ["wheel", "touchmove", "keydown", "mousedown"].forEach((ev) =>
+    window.addEventListener(ev, (e) => { if (!(e.target.closest && e.target.closest(".top nav"))) unforce(); }, { passive: true })
+  );
+
   function spy() {
+    if (forced) {
+      ids.forEach((id) => links[id] && links[id].classList.toggle("on", id === forced));
+      return;
+    }
     const line = (document.querySelector(".top")?.offsetHeight || 0) + 60;
     let cur = "";
     ids.forEach((id) => {
