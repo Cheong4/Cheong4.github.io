@@ -150,24 +150,21 @@ function typeWriter(text, el, i = 0) {
   setTimeout(() => typeWriter(text, el, i + 1), 55);
 }
 
-/* ---------- CTFtime 랭킹 (data.json 의 ranking 값) ---------- */
+/* ---------- CTFtime 랭킹 → 통계 카드 (ranking.json) ---------- */
 // ranking.json 은 GitHub Actions(.github/workflows/update-ctftime.yml)가 매일 CTFtime 에서 받아 갱신합니다.
 function loadRanking() {
   fetch("ranking.json", { cache: "no-cache" })
     .then((r) => (r.ok ? r.json() : Promise.reject()))
     .then(renderRanking)
-    .catch(() => renderRanking(null));
+    .catch(() => {});
 }
 
 function renderRanking(r) {
-  const el = $("ranking");
-  if (!r) { el.hidden = true; return; }
-  el.innerHTML =
-    `<p class="muted">$ ctftime --team CheongA --year ${esc(r.year)}</p>` +
-    `<div class="ranks">` +
-    `<div class="rank"><span>Global Rank</span><b>#${esc(r.global)}</b></div>` +
-    `<div class="rank"><span>${esc(r.countryName)} Rank</span><b>#${esc(r.country)}</b></div>` +
-    `<div class="rank"><span>Rating</span><b>${esc(r.points)}</b></div>` +
-    `</div>` +
-    `<p class="muted small"><a href="${esc(r.url)}" target="_blank" rel="noopener">CTFtime ↗</a> · ${esc(r.year)} · updated ${esc(r.updated)}</p>`;
+  const card = (value, label) =>
+    `<a class="stat" href="${esc(r.url)}" target="_blank" rel="noopener" title="CTFtime ${esc(r.year)} · updated ${esc(r.updated)} · ${esc(r.points)} pts">` +
+    `<b>#${esc(value)}</b><span>${esc(label)}</span></a>`;
+  $("stats").insertAdjacentHTML(
+    "beforeend",
+    card(r.global, "Global Rank (CTFtime)") + card(r.country, `${r.countryName} Rank (CTFtime)`)
+  );
 }
