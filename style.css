@@ -88,7 +88,10 @@ a.stat:hover{border-color:var(--accent)}
 .page .sub{color:var(--muted);margin-bottom:24px}
 .plist{list-style:none;display:grid;gap:14px}
 .pitem{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:18px 20px;transition:.2s}
+.pitem{position:relative;cursor:pointer}
 .pitem:hover{border-color:var(--accent)}
+.pitem h2 a::after{content:"";position:absolute;inset:0;border-radius:10px}
+.pitem:hover h2 a{color:var(--accent)}
 .pitem h2{font-size:18px;margin:2px 0 8px}
 .pitem h2 a{color:#fff}
 .pitem h2 a:hover{color:var(--accent)}
@@ -98,6 +101,7 @@ a.stat:hover{border-color:var(--accent)}
 .ptags span{font-size:11px;border:1px solid var(--line);padding:0 8px;border-radius:4px;color:var(--muted)}
 .none{color:var(--muted)}
 .back{margin-top:40px}
+.src{margin-top:24px}
 .prose{max-width:760px;word-break:break-word}
 .prose h2,.prose h3,.prose h4,.prose h5{color:#fff;margin:30px 0 12px;line-height:1.4}
 .prose h2{font-size:22px}.prose h3{font-size:18px}.prose h4,.prose h5{font-size:16px}

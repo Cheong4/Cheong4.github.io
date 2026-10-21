@@ -110,14 +110,10 @@ const blogItem = (i) =>
   `<h2><a href="post.html?p=${encodeURIComponent(i.slug)}">${esc(i.title)}</a></h2>` +
   `<p class="psum">${esc(i.summary || "")}</p>${tagsHTML(i.tags)}</li>`;
 
-const newsItem = (i) => {
-  const link = i.url && /^https?:\/\//i.test(i.url) ? i.url : "";
-  const title = link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(i.title)} ↗</a>` : esc(i.title);
-  return (
-    `<li class="pitem"><div class="pmeta">${esc(i.date)}${i.source ? " · " + esc(i.source) : ""}</div>` +
-    `<h2>${title}</h2><div class="prose psum">${md(i.body || i.summary || "")}</div>${tagsHTML(i.tags)}</li>`
-  );
-};
+const newsItem = (i) =>
+  `<li class="pitem"><div class="pmeta">${esc(i.date)}${i.source ? " · " + esc(i.source) : ""}</div>` +
+  `<h2><a href="post.html?type=news&p=${encodeURIComponent(i.slug)}">${esc(i.title)}</a></h2>` +
+  `<p class="psum">${esc(i.summary || "")}</p>${tagsHTML(i.tags)}</li>`;
 
 async function initList(dir, render) {
   const box = $("#list");
@@ -154,26 +150,34 @@ async function initList(dir, render) {
   draw();
 }
 
-/* ---------- 글 상세 ---------- */
+/* ---------- 글 상세 (blog: posts/, news: news/) ---------- */
 async function initPost() {
   const box = $("#post");
-  const notFound = `<p class="none">글을 찾을 수 없습니다. <a href="blog.html">블로그 목록으로</a></p>`;
-  const slug = new URLSearchParams(location.search).get("p") || "";
+  const q = new URLSearchParams(location.search);
+  const isNews = q.get("type") === "news";
+  const dir = isNews ? "news" : "posts";
+  const listPage = isNews ? "news.html" : "blog.html";
+  const notFound = `<p class="none">글을 찾을 수 없습니다. <a href="${listPage}">${isNews ? "뉴스" : "블로그"} 목록으로</a></p>`;
+  document.querySelectorAll(".top nav a").forEach((a) => a.classList.toggle("on", a.getAttribute("href") === listPage));
+  const slug = q.get("p") || "";
   if (!/^[\w.-]+$/.test(slug)) { box.innerHTML = notFound; return; }
   let text;
   try {
-    const r = await fetch(`posts/${slug}.md`, { cache: "no-cache" });
+    const r = await fetch(`${dir}/${slug}.md`, { cache: "no-cache" });
     if (!r.ok) throw new Error();
     text = await r.text();
   } catch (e) { box.innerHTML = notFound; return; }
   const { meta, body } = parseFM(text);
   const title = meta.title || slug;
   document.title = `${title} · CheongA`;
+  const by = isNews ? meta.source : meta.author;
+  const link = isNews && meta.url && /^https?:\/\//i.test(meta.url) ? meta.url : "";
   box.innerHTML =
-    `<p class="pmeta">${esc(meta.date || "")}${meta.author ? " · " + esc(meta.author) : ""}</p>` +
+    `<p class="pmeta">${esc(meta.date || "")}${by ? " · " + esc(by) : ""}</p>` +
     `<h1>${esc(title)}</h1>${tagsHTML(tagList(meta.tags))}` +
     `<article class="prose">${md(body)}</article>` +
-    `<p class="back"><a href="blog.html">← ./blog</a></p>`;
+    (link ? `<p class="src"><a href="${esc(link)}" target="_blank" rel="noopener">원문 보기 ↗</a></p>` : "") +
+    `<p class="back"><a href="${listPage}">← ./${isNews ? "news" : "blog"}</a></p>`;
 }
 
 const PAGE = document.body.dataset.page;
