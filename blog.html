@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog · CheongA</title>
+<link rel="stylesheet" href="style.css?v=5">
+</head>
+<body data-page="blog">
+<div class="scanlines"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="prompt" id="brand" href="./" title="CheongA">CheongA@site:~$</a>
+    <nav>
+      <a href="./#about">./about</a>
+      <a href="./#history">./history</a>
+      <a href="./#members">./members</a>
+      <a href="blog.html" class="on">./blog</a>
+      <a href="news.html">./news</a>
+      <a href="./#contact">./contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page">
+  <p class="muted">$ ls ./blog</p>
+  <h1>blog</h1>
+  <p class="sub">분석 글과 연구 기록</p>
+  <div class="tabs" id="filters" aria-label="태그 필터"></div>
+  <ul class="plist" id="list"></ul>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="muted small">exit 0 · <a href="./">cd ~</a></p>
+  </div>
+</footer>
+
+<script src="posts.js?v=5"></script>
+</body>
+</html>
