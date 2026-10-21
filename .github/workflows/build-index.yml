@@ -1,0 +1,40 @@
+name: Build post index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "posts/*.md"
+      - "news/*.md"
+      - "tools/build_index.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: build-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build index.json files
+        run: python3 tools/build_index.py
+
+      - name: Commit if changed
+        run: |
+          for f in posts/index.json news/index.json; do [ -f "$f" ] && git add "$f"; done
+          if git diff --cached --quiet; then echo "no index change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: rebuild post index"
+          git pull --rebase origin main
+          git push
+          gh api -X POST "/repos/$GITHUB_REPOSITORY/pages/builds" || true
+        env:
+          GH_TOKEN: ${{ github.token }}
