@@ -53,6 +53,51 @@ function render(d) {
         <p class="bio">${esc(m.bio)}</p><div class="skills">${skills}</div><div class="links">${links}</div></article>`;
     })
     .join("");
+
+  setupNav();
+}
+
+/* ---------- 네비게이션: 해시 이동 + 현재 섹션 하이라이트 ---------- */
+// blog/news 에서 ./#members 로 넘어오면 내용이 그려진 뒤에야 섹션이 생기므로, 렌더 후에 직접 스크롤합니다.
+function setupNav() {
+  const ids = ["about", "history", "members", "contact"];
+  const links = {};
+  document.querySelectorAll(".top nav a").forEach((a) => {
+    const m = /#(\w+)$/.exec(a.getAttribute("href") || "");
+    if (m && ids.includes(m[1])) links[m[1]] = a;
+  });
+
+  const m = /^#(about|history|members|contact)/.exec(location.hash);
+  if (m && !/^#history-/.test(location.hash)) {
+    const el = $(m[1]);
+    const go = () => el && el.scrollIntoView({ behavior: "instant" });
+    if (el) {
+      go();
+      // 이미지/폰트 로드로 레이아웃이 밀릴 수 있어 로드 후 한 번 더 맞춥니다.
+      // 통계 카드(랭킹)·타이핑으로 위쪽 높이가 변하므로, 사용자가 스크롤하기 전까지 잠깐 위치를 유지합니다.
+      let n = 0;
+      const stop = () => clearInterval(t);
+      const t = setInterval(() => (++n > 25 ? stop() : go()), 150);
+      ["wheel", "touchstart", "keydown", "mousedown"].forEach((ev) =>
+        window.addEventListener(ev, stop, { once: true, passive: true })
+      );
+    }
+  }
+
+  function spy() {
+    const line = (document.querySelector(".top")?.offsetHeight || 0) + 60;
+    let cur = "";
+    ids.forEach((id) => {
+      const el = $(id);
+      if (el && el.getBoundingClientRect().top <= line) cur = id;
+    });
+    // 페이지 맨 아래면 마지막(contact) 강조
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = "contact";
+    ids.forEach((id) => links[id] && links[id].classList.toggle("on", id === cur));
+  }
+  window.addEventListener("scroll", spy, { passive: true });
+  window.addEventListener("resize", spy);
+  spy();
 }
 
 /* ---------- 연혁: 연도 탭 ---------- */
