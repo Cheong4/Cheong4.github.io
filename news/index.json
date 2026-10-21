@@ -7,7 +7,7 @@
       "Guide"
     ],
     "source": "CheongA",
-    "summary": "news/ 폴더에 .md 파일을 올리면 뉴스 목록에 등록됩니다. 본문에는 요약만 적고, 원문 주소는 url: 에 넣으면 제목에 링크가 걸립니다. --- title: 기사 제목 date: 2026-10-21 source: BleepingComputer ",
-    "body": "`news/` 폴더에 `.md` 파일을 올리면 뉴스 목록에 등록됩니다. 본문에는 **요약**만 적고, 원문 주소는 `url:` 에 넣으면 제목에 링크가 걸립니다.\n\n```\n---\ntitle: 기사 제목\ndate: 2026-10-21\nsource: BleepingComputer\nurl: https://원문주소\ntags: CVE, Windows\n---\n핵심 내용 2~3줄 요약\n```"
+    "summary": "news/ 폴더에 .md 파일을 올리면 뉴스 목록에 등록됩니다. 샘플이니 확인 후 삭제하세요.",
+    "body": "`news/` 폴더에 `.md` 파일을 올리면 뉴스 목록에 등록됩니다. 본문에는 **요약**만 적고, 원문 주소는 `url:` 에 넣으면 글 하단에 '원문 보기' 링크가 생깁니다.\n\n```\n---\ntitle: 기사 제목\ndate: 2026-10-21\nsource: BleepingComputer\nurl: https://원문주소\ntags: CVE, Windows\n---\n핵심 내용 2~3줄 요약\n```"
   }
 ]
