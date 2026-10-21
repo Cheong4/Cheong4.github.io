@@ -22,9 +22,13 @@ jobs:
           python3 - <<'PY'
           import json, datetime
           t = json.load(open("team.json"))
-          ratings = {}
-          for item in t.get("rating", []):
-              ratings.update(item)
+          rt = t.get("rating", {})
+          if isinstance(rt, list):
+              ratings = {}
+              for item in rt:
+                  ratings.update(item)
+          else:
+              ratings = rt
           year = str(datetime.date.today().year)
           if year not in ratings:
               year = max(ratings)
