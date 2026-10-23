@@ -35,39 +35,89 @@
   ],
   "history": [
     {
-      "date": "2025.03",
-      "title": "팀 결성 (샘플)",
-      "desc": "보안 연구를 함께하기 위해 CheongA를 시작."
-    },
-    {
-      "date": "2025.06",
-      "title": "첫 취약점 제보 (샘플)",
-      "desc": "오픈소스 프로젝트 취약점을 책임 있게 제보."
-    },
-    {
-      "date": "2025.09",
-      "title": "CTF 대회 참가 (샘플)",
-      "desc": "국내외 CTF 대회에 팀으로 참가."
+      "date": "2025.10",
+      "title": "ACDC 참가",
+      "desc": ""
     },
     {
       "date": "2025.12",
-      "title": "보안 도구 오픈소스 공개 (샘플)",
-      "desc": "자체 개발 도구를 GitHub에 공개."
+      "title": "LLM Safety Challenge 수상",
+      "desc": "U+"
     },
     {
-      "date": "2026.02",
-      "title": "신규 연구 과제 시작 (샘플)",
-      "desc": "새로운 취약점 연구 주제를 정하고 착수."
+      "date": "2026.03-05",
+      "title": "관광 콘텐츠랩 해커톤",
+      "desc": "본선 진출"
     },
     {
-      "date": "2026.05",
-      "title": "컨퍼런스 발표 (샘플)",
-      "desc": "연구 결과를 보안 컨퍼런스에서 발표."
+      "date": "2026.04",
+      "title": "CMUX x AIM 해커톤 참가",
+      "desc": ""
+    },
+    {
+      "date": "2026.04-05",
+      "title": "FIN:NECT 해커톤 참가",
+      "desc": "카카오뱅크 주최"
+    },
+    {
+      "date": "2026.05-06",
+      "title": "AI 임팩트 솔루션 해커톤 참가",
+      "desc": "SK 이노베이션 주최"
+    },
+    {
+      "date": "2026.08",
+      "title": "0xV01D CTF 2026 V2 참가",
+      "desc": "CTF"
+    },
+    {
+      "date": "2026.08",
+      "title": "COMPFEST CTF 2026 참가",
+      "desc": "CTF"
     },
     {
       "date": "2026.09",
-      "title": "보안 도구 v1.0 릴리스 (샘플)",
-      "desc": "베타를 거쳐 정식 버전을 공개."
+      "title": "NNS CTF 2026 참가",
+      "desc": "CTF"
+    },
+    {
+      "date": "2026.09",
+      "title": "TFC CTF 2026 참가",
+      "desc": "CTF"
+    },
+    {
+      "date": "2026.09",
+      "title": "PwnSec CTF 2026 참가",
+      "desc": "CTF"
+    },
+    {
+      "date": "2026.09",
+      "title": "DefCamp Capture the Flag (D-CTF) 2026 Quals 참가",
+      "desc": "CTF"
+    },
+    {
+      "date": "2026.09",
+      "title": "CSAW CTF Qualification Round 2026 참가",
+      "desc": "CTF"
+    },
+    {
+      "date": "2026.09",
+      "title": "H7CTF 2026 Quals 참가",
+      "desc": "CTF"
+    },
+    {
+      "date": "2026.10",
+      "title": "불법광고 탐지도구 개발 해커톤",
+      "desc": "행정안전부"
+    },
+    {
+      "date": "2026.10",
+      "title": "HITCON CTF 2026 참가",
+      "desc": "CTF"
+    },
+    {
+      "date": "2026.10",
+      "title": "AI TOP 100 참가",
+      "desc": ""
     }
   ],
   "members": [
