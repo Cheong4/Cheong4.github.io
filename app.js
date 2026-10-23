@@ -121,7 +121,7 @@ function renderHistory(raw) {
     const m = /^(\d{4})(?:\.(\d{1,2}))?/.exec(h.date || "");
     return { ...h, year: m ? Number(m[1]) : null, month: m && m[2] ? Number(m[2]) : 0 };
   });
-  items.sort((a, b) => (b.year ?? 0) - (a.year ?? 0) || b.month - a.month); // 최신순
+  items.sort((a, b) => (a.year ?? 9999) - (b.year ?? 9999) || a.month - b.month); // 오래된 순
 
   const dataMax = Math.max(0, ...items.map((h) => h.year || 0));
   const lastYear = Math.max(new Date().getFullYear(), dataMax);
