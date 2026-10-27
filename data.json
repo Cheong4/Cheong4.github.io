@@ -2,7 +2,7 @@
   "name": "CheongA",
   "handle": "CheongA",
   "slogan": "Find it. Break it. Secure it.",
-  "desc": "취약점 연구와 보안 도구 개발을 하는 4인 보안 팀, CheongA입니다.",
+  "desc": "취약점 연구와 보안 도구 개발을 하는 5인 보안 팀, CheongA입니다.",
   "about": "CheongA는 취약점 분석, 리버스 엔지니어링, 보안 도구 개발을 함께 하는 보안 팀입니다. 공격자의 시선으로 문제를 찾고, 방어에 쓸 수 있는 결과물로 만들며, 발견한 취약점은 책임 있게 공개합니다.",
   "contact": [
     {
@@ -16,7 +16,7 @@
   ],
   "stats": [
     {
-      "value": "4",
+      "value": "5",
       "label": "Members"
     },
     {
@@ -163,6 +163,14 @@
         "Misc",
         "OSINT"
       ],
+      "photo": "images/member.png",
+      "links": {}
+    },
+    {
+      "name": "Sukwoo / w0_0",
+      "role": "Member",
+      "bio": "",
+      "skills": [],
       "photo": "images/member.png",
       "links": {}
     }
